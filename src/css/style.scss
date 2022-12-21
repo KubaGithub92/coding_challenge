@@ -32,7 +32,7 @@ html {
   font-family: "Inter", sans-serif;
   padding: 24px;
   display: flex;
-  // justify-content: center;
+  height: 100%;
   align-items: center;
   gap: 96px;
   flex-direction: column;
@@ -47,7 +47,6 @@ html {
     gap: 60px;
     border-radius: 18px;
     height: 540px;
-    // margin: 0 auto;
 
     &__content {
       display: flex;
@@ -87,8 +86,9 @@ html {
 
       .hero__description {
         color: $text-color-content;
-        font-size: 13px;
+        font-size: 12px;
         line-height: 18px;
+        word-spacing: -0.8px;
       }
 
       .hero__buttons {
@@ -108,6 +108,7 @@ html {
           background: linear-gradient(127.93deg, #2ebd7a -2.9%, #25a066 96.02%);
           color: #fff;
           font-weight: 700;
+          cursor: pointer;
         }
 
         .hero__button_request {
@@ -162,6 +163,7 @@ html {
   }
 
   .features {
+    width: min(100%, 1788px);
     display: flex;
     padding: 0 36px;
     justify-content: space-between;
@@ -205,22 +207,26 @@ html {
       }
 
       &-description {
-        font-size: 13px;
+        font-size: 11.3px;
         line-height: 18px;
         color: $text-color-desc;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: "";
       }
     }
   }
 }
-//--------------------------------------------------------------------1280px-----------------------------------------------------------
+// --------------------------------------------------- BREAKPOINT 1280 px ---------------------------------------------------
 @media (min-width: 1280px) {
   #root {
     .hero {
-      padding-left: max(
-        36px,
-        5%
-      ); ////////////////////////////////////////////////////////////////////////// !!!
+      padding-left: max(36px, 5%);
       width: 100%;
+
       &__content {
         max-width: 600px;
         gap: 30px;
@@ -230,7 +236,8 @@ html {
             font-weight: 700;
             font-size: 46px;
             line-height: 60px;
-            letter-spacing: -0.022px;
+            letter-spacing: -0.22px;
+            // word-spacing: -3.2px;
           }
           .header__cloud {
             font-size: 13px;
@@ -252,7 +259,7 @@ html {
 
     .features {
       display: flex;
-      padding: 0 36px;
+      padding: 0 max(36px, 4%);
       justify-content: space-between;
       gap: 96px;
       width: 100%;
@@ -272,14 +279,13 @@ html {
   }
 }
 
-//--------------------------------------------------------------------1560px-----------------------------------------------------------
+// --------------------------------------------------- BREAKPOINT 1560 px ---------------------------------------------------
 @media (min-width: 1560px) {
   #root {
     .hero {
       gap: 120px;
-      padding-left: min(240px, 3%);
+      padding-left: clamp(72px, 7.3%, 240px);
       width: min(100%, 1788px);
-      // justify-content: center;
 
       &__content {
         width: 600px;
@@ -292,10 +298,8 @@ html {
 
     .features {
       display: flex;
-      padding: 0 min(240px, 3%);
-      justify-content: center;
+      padding: 0 clamp(72px, 7.3%, 240px);
       width: min(100%, 1788px);
-      background-color: orange;
 
       &__box {
         min-width: 300px;
